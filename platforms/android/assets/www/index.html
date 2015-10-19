@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <script src="js/compass.js"></script>
+    <script src="js/camera.js"></script>
+    <script src="js/acelerometer.js"></script>
+
+    <title>Project</title>
+</head>
+<body>
+
+
+<!--PARTE DE CAMARA -->
+<div>
+    <a href="#origen" data-rel="popup" data-position-to="window" data-transition="pop">
+        <img id="img0" src="img/pasos.png"/>
+    </a>
+
+    <div data-role="popup" id="opciones">
+        <h3>Cambiar Imagen</h3>
+        <a href="#origen" data-rel="popup" data-position-to="window" data-transition="pop">Si</a>
+        <!-- <a href="#origen" data-role="button" data-rel="popup" data-icon="check" data-inline="true" data-mini="true">Si</a>-->
+        <!-- <a href="#" data-role="button" data-rel="back" data-icon="delete" data-inline="true" data-mini="true">No</a>-->
+    </div>
+    <div data-role="popup" id="origen">
+        <h3 style="text-align:center">Origen</h3>
+        <button onclick="captureImage();">Camara</button>
+        <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button>
+        <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button>
+        <a href="#" data-role="button" data-rel="back" data-icon="delete" data-inline="true" data-mini="true">Cerrar</a>
+
+        <!-- <a href="#" data-role="button" data-rel="back" data-inline="true" data-mini="true">Biblioteca</a>
+         <a href="#" data-role="button" data-rel="back" data-inline="true" data-mini="true">Camara</a> -->
+    </div>
+</div>
+
+
+<!--PARTE DE PODÓMETRO.-->
+
+<div style="padding:50px;text-align:center;border:solid 1px;">
+
+    <h1>Pedometer</h1>
+
+    <p>Datos del acelerometro:</p>
+
+    <div id="data" style="display: none;">
+        <strong>Pasos:</strong>
+
+        <p id="accelerometer"></p>
+    </div>
+    <button onclick="startAccelerometer();">Start Watch</button>
+    <button onclick="stopWatchAccelerometer();">Stop Watch</button>
+</div>
+
+<!--PARTE DE PODÓMETRO.-->
+
+
+<!--PARTE DE BRUJULA -->
+<div>
+    <div id="heading"><h1>Waiting for heading...</h1></div>
+    <img id="img1" src="img/brujula.png">
+</div>
+
+</body>
+</html>
+
