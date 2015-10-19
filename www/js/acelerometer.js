@@ -70,7 +70,6 @@ function onErrorAccelerometer() {
     alert('¡Error!');
 }
 
-
 function stopWatchAccelerometer() {
     if (watchID != null) {
         navigator.accelerometer.clearWatch(watchID);
