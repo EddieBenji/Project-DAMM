@@ -2,9 +2,14 @@
  * Created by lalo on 19/10/15.
  */
 var gWatchID = null;
+var pictureSource;
+var destinationType;
+
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     startWatch();
+    pictureSource = navigator.camera.PictureSourceType;
+    destinationType = navigator.camera.DestinationType;
 }
 function startWatch() {
     var options = {frequency: 20};
