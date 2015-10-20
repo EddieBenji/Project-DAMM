@@ -15,7 +15,7 @@ function onDeviceReady() {
 }
 
 function startWatch() {
-    stopWatch();
+   // stopWatch();
     var options = {frequency: 1};
     if (!gWatchID)
         gWatchID = navigator.compass.watchHeading(onSuccess, onError, options);
