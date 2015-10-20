@@ -2,15 +2,24 @@
  * Created by lalo on 19/10/15.
  */
 
+function captureImageSuccess1(mediaFiles) {
+    var smallImage = document.getElementById("principal-img");
+    smallImage.src = mediaFiles[0].fullPath;
+}
 
-function captureImageSuccess(mediaFiles) {
+function captureImageSuccess2(mediaFiles) {
     var smallImage = document.getElementById("principal-img");
     smallImage.src = "data:image/jpeg;base64," + mediaFiles;
 }
 
 function captureImage() {
     
-    navigator.device.capture.captureImage(captureImageSuccess, captureError,
+    navigator.device.capture.captureImage(captureImageSuccess1, captureError,
+            {limit: 1});
+}
+
+function capturePhoto(){
+    navigator.device.capture.getPicture(captureImageSuccess2, captureError,
             {limit: 1});
 }
 
