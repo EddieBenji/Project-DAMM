@@ -24,11 +24,12 @@
         <img id="principal-img" src="img/pasos.png"/>
     </a>
 
-    
+
     <div data-role="popup" id="origen">
         <h3 style="text-align:center">Origen</h3>
         <button onclick="captureImage();">Camara 1</button>
-        <button onclick="capturePhoto();">Camara 2</button>
+        <!-- Este no sirve, por eso lo comento-->
+        <!--<button onclick="capturePhoto();">Camara 2</button>-->
         <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button>
         <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button>
         <a href="#" data-role="button" data-rel="back" data-icon="delete" data-inline="true" data-mini="true">Cerrar</a>
@@ -50,8 +51,8 @@
 
         <p id="accelerometer"></p>
     </div>
-    <button onclick="startAccelerometer();">Start Watch</button>
-    <button onclick="stopWatchAccelerometer();">Stop Watch</button>
+    <button onclick="startAccelerometer();">Iniciar Podómetro</button>
+    <button onclick="stopWatchAccelerometer();">Detener Podómetro</button>
 </div>
 
 

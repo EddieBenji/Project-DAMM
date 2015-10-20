@@ -13,21 +13,21 @@ function captureImageSuccess2(mediaFiles) {
 }
 
 function captureImage() {
-    
+
     navigator.device.capture.captureImage(captureImageSuccess1, captureError,
-            {limit: 1});
+        {limit: 1});
 }
 
-function capturePhoto(){
+function capturePhoto() {
     navigator.device.capture.getPicture(captureImageSuccess2, captureError,
-            {limit: 1});
+        {limit: 1});
 }
 
 function captureError(error) {
     var msg = 'An error occurred during capture: ' + error.code;
     navigator.notification.alert(msg, null, 'Error!');
     document.getElementById('capture-result').innerHTML =
-            "<strong>Error</strong>";
+        "<strong>Error</strong>";
 }
 function formatError(error) {
     alert("Error getting file format data: " + error.code);
@@ -43,10 +43,13 @@ function onFail(message) {
     alert("Fallo al inicializar la camara " + message);
 }
 function getPhoto(source) {
-    navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
-        quality: 50,
-        destinationType: destinationType.FILE_URI,
-        sourceType: source
-    });
+    navigator.camera.getPicture(onPhotoDataSuccess,
+        onFail,
+        {
+            quality: 50,
+            destinationType: destinationType.FILE_URI,
+            sourceType: source
+        }
+    );
 
 }

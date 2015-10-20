@@ -13,7 +13,9 @@
 var watchID = null, data;
 
 function startAccelerometer() {
-    var options = {frequency: 500};
+    var options = {
+        frequency: 500
+    };
     data = document.getElementById("data");
     data.style.display = "block";
 
@@ -24,7 +26,7 @@ var previousPosition_y = 0,
     currentPosition_y = 0,
     previousPosition_x = 0,
     currentPosition_x = 0,
-    differential = 1,
+    differential = 1.2,
     threshold = 1.5; // 1.5 funciona más o menos.
 
 var has_moved_on_x = false,
@@ -48,7 +50,8 @@ function onSuccessAccelerometer(acceleration) {
             has_moved_on_y = true;
 
 
-    if (Math.abs(currentPosition_x - previousPosition_x) > threshold &&
+    if (has_moved_on_x && has_moved_on_y &&
+        Math.abs(currentPosition_x - previousPosition_x) > threshold &&
         Math.abs(currentPosition_y - previousPosition_y) > threshold) {
         steps++;
         element.innerHTML = steps;
