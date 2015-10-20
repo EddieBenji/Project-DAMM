@@ -10,7 +10,7 @@
 //}
 
 
-var watchID = null, data;
+var accelerometerWatchID = null, data;
 
 function startAccelerometer() {
     var options = {
@@ -19,7 +19,7 @@ function startAccelerometer() {
     data = document.getElementById("data");
     data.style.display = "block";
 
-    watchID = navigator.accelerometer.watchAcceleration(onSuccessAccelerometer, onErrorAccelerometer, options);
+    accelerometerWatchID = navigator.accelerometer.watchAcceleration(onSuccessAccelerometer, onErrorAccelerometer, options);
 }
 
 var previousPosition_y = 0,
@@ -61,11 +61,6 @@ function onSuccessAccelerometer(acceleration) {
     }
     previousPosition_x = currentPosition_x;
     previousPosition_y = currentPosition_y;
-
-    //operation = Math.pow(acceleration.x, 2) + Math.pow(acceleration.y, 2) +
-    //Math.pow(acceleration.z, 2);
-    // var length = operation / Math.pow(9.80665, 2);//Math.sqrt(operation);
-
 }
 
 
@@ -74,17 +69,15 @@ function onErrorAccelerometer() {
 }
 
 function stopWatchAccelerometer() {
-    if (watchID != null) {
-        navigator.accelerometer.clearWatch(watchID);
-        watchID = null;
+    if (accelerometerWatchID != null) {
+        navigator.accelerometer.clearWatch(accelerometerWatchID);
+        accelerometerWatchID = null;
 
         reset_variables_and_fields();
     }
 }
 
 function reset_variables_and_fields() {
-
-
     data.style.display = "none";
     elements.innerHTML = " ";
     alert("Se contaron:  " + steps + " pasos");

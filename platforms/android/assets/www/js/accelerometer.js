@@ -10,7 +10,7 @@
 //}
 
 
-var watchID = null, data;
+var accelerometerWatchID = null, data;
 
 function startAccelerometer() {
     var options = {
@@ -19,7 +19,7 @@ function startAccelerometer() {
     data = document.getElementById("data");
     data.style.display = "block";
 
-    watchID = navigator.accelerometer.watchAcceleration(onSuccessAccelerometer, onErrorAccelerometer, options);
+    accelerometerWatchID = navigator.accelerometer.watchAcceleration(onSuccessAccelerometer, onErrorAccelerometer, options);
 }
 
 var previousPosition_y = 0,
@@ -32,10 +32,10 @@ var previousPosition_y = 0,
 var has_moved_on_x = false,
     has_moved_on_y = false;
 
-var steps = 0, element;
+var steps = 0, elements;
 
 function onSuccessAccelerometer(acceleration) {
-    element = document.getElementById('accelerometer');
+    elements = document.getElementById('accelerometer');
 
     currentPosition_y = acceleration.y;
     currentPosition_x = acceleration.x;
@@ -54,18 +54,13 @@ function onSuccessAccelerometer(acceleration) {
         Math.abs(currentPosition_x - previousPosition_x) > threshold &&
         Math.abs(currentPosition_y - previousPosition_y) > threshold) {
         steps++;
-        element.innerHTML = steps;
+        elements.innerHTML = steps;
 
         has_moved_on_x = false;
         has_moved_on_y = false;
     }
     previousPosition_x = currentPosition_x;
     previousPosition_y = currentPosition_y;
-
-    //operation = Math.pow(acceleration.x, 2) + Math.pow(acceleration.y, 2) +
-    //Math.pow(acceleration.z, 2);
-    // var length = operation / Math.pow(9.80665, 2);//Math.sqrt(operation);
-
 }
 
 
@@ -74,19 +69,17 @@ function onErrorAccelerometer() {
 }
 
 function stopWatchAccelerometer() {
-    if (watchID != null) {
-        navigator.accelerometer.clearWatch(watchID);
-        watchID = null;
+    if (accelerometerWatchID != null) {
+        navigator.accelerometer.clearWatch(accelerometerWatchID);
+        accelerometerWatchID = null;
 
         reset_variables_and_fields();
     }
 }
 
 function reset_variables_and_fields() {
-
-
     data.style.display = "none";
-    element.innerHTML = " ";
+    elements.innerHTML = " ";
     alert("Se contaron:  " + steps + " pasos");
 
     has_moved_on_x = false;

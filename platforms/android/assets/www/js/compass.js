@@ -15,18 +15,19 @@ function onDeviceReady() {
 }
 
 function startWatch() {
-    stopWatch();
-    var options = {frequency: 1};
+    var options = {frequency: 100};
     if (!gWatchID)
         gWatchID = navigator.compass.watchHeading(onSuccess, onError, options);
 
 }
 function stopWatch() {
     if (gWatchID) {
-        navigator.compass.clearWatch(watchID);
+        navigator.compass.clearWatch(gWatchID);
         gWatchID = null;
     }
 }
+
+
 function onSuccess(heading) {
     var element = document.getElementById('heading');
 
@@ -57,8 +58,10 @@ function onSuccess(heading) {
         element.innerHTML = '<h1 class="NO">Heading: ' + heading.magneticHeading + 'NO</h1>';
     }
     var value = heading.magneticHeading * -1;
-    var logo = document.getElementById("img-compass");
-    logo.style.transform = "rotate(" + value + "deg)";
+    document.getElementById('img-compass').style.transform = "rotate(" + value + "deg)";
+
+
+    document.getElementById("status").innerHTML = "rotate(" + value + "deg)";
 }
 function onError(compassError) {
     alert('Compass error: ' + compassError.code);

@@ -43,10 +43,13 @@ function onFail(message) {
     alert("Fallo al inicializar la camara " + message);
 }
 function getPhoto(source) {
-    navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
-        quality: 50,
-        destinationType: destinationType.FILE_URI,
-        sourceType: source
-    });
+    navigator.camera.getPicture(onPhotoDataSuccess,
+        onFail,
+        {
+            quality: 50,
+            destinationType: destinationType.FILE_URI,
+            sourceType: source
+        }
+    );
 
 }
