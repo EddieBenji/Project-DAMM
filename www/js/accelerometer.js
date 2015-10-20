@@ -32,10 +32,10 @@ var previousPosition_y = 0,
 var has_moved_on_x = false,
     has_moved_on_y = false;
 
-var steps = 0, element;
+var steps = 0, elements;
 
 function onSuccessAccelerometer(acceleration) {
-    element = document.getElementById('accelerometer');
+    elements = document.getElementById('accelerometer');
 
     currentPosition_y = acceleration.y;
     currentPosition_x = acceleration.x;
@@ -54,7 +54,7 @@ function onSuccessAccelerometer(acceleration) {
         Math.abs(currentPosition_x - previousPosition_x) > threshold &&
         Math.abs(currentPosition_y - previousPosition_y) > threshold) {
         steps++;
-        element.innerHTML = steps;
+        elements.innerHTML = steps;
 
         has_moved_on_x = false;
         has_moved_on_y = false;
@@ -86,7 +86,7 @@ function reset_variables_and_fields() {
 
 
     data.style.display = "none";
-    element.innerHTML = " ";
+    elements.innerHTML = " ";
     alert("Se contaron:  " + steps + " pasos");
 
     has_moved_on_x = false;
