@@ -48,7 +48,8 @@ function getPhoto(source) {
         {
             quality: 50,
             destinationType: destinationType.FILE_URI,
-            sourceType: source
+            sourceType: source,
+            saveToPhotoAlbum:true
         }
     );
 

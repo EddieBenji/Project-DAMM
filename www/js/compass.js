@@ -57,11 +57,13 @@ function onSuccess(heading) {
     if (heading.magneticHeading > 270 && heading.magneticHeading < 360) {
         element.innerHTML = '<h1 class="NO">Heading: ' + heading.magneticHeading + 'NO</h1>';
     }
-    var value = heading.magneticHeading * -1;
-    document.getElementById('img-compass').style.transform = "rotate(" + value + "deg)";
+    var value = (heading.magneticHeading) * -1;
 
 
-    document.getElementById("status").innerHTML = "rotate(" + value + "deg)";
+    //$("#img-compass").style.transform = "rotate(" + value + "deg)";
+    document.getElementById("compass-img").style.transform = "rotate(" + value + "deg)";
+    //document.getElementById("img-compass").webKitTransform = "rotate(" + heading.magneticHeading + "deg)";
+    //document.getElementById("status").innerHTML = "rotate(" + value + "deg)";
 }
 function onError(compassError) {
     alert('Compass error: ' + compassError.code);
