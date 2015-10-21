@@ -12,6 +12,10 @@ function onDeviceReady() {
     destinationType = navigator.camera.DestinationType;
     startWatch();
 
+
+    if (window.localStorage.getItem("photo")) {
+        document.getElementById("principal-img").src = localStorage.getItem("photo");
+    }
 }
 
 function startWatch() {
@@ -60,10 +64,7 @@ function onSuccess(heading) {
     var value = (heading.magneticHeading) * -1;
 
 
-    //$("#img-compass").style.transform = "rotate(" + value + "deg)";
     document.getElementById("compass-img").style.transform = "rotate(" + value + "deg)";
-    //document.getElementById("img-compass").webKitTransform = "rotate(" + heading.magneticHeading + "deg)";
-    //document.getElementById("status").innerHTML = "rotate(" + value + "deg)";
 }
 function onError(compassError) {
     alert('Compass error: ' + compassError.code);

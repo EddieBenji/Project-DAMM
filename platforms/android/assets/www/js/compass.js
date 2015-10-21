@@ -12,6 +12,11 @@ function onDeviceReady() {
     destinationType = navigator.camera.DestinationType;
     startWatch();
 
+
+    if (window.localStorage.getItem("photo")) {
+        //alert(window.localStorage.getItem("photo"));
+        document.getElementById("principal-img").src = localStorage.getItem("photo");
+    }
 }
 
 function startWatch() {

@@ -5,6 +5,7 @@
 function captureImageSuccess1(mediaFiles) {
     var smallImage = document.getElementById("principal-img");
     smallImage.src = mediaFiles[0].fullPath;
+    window.localStorage.setItem("photo", mediaFiles[0].fullPath);
 }
 
 function captureImageSuccess2(mediaFiles) {
@@ -37,6 +38,8 @@ function onPhotoDataSuccess(imageData) {
     var smallImage = document.getElementById("principal-img");
     //smallImage.style.display = 'block';
     //smallImage.src = "data:image/jpeg;base63," + imageData;
+    //$.jStorage.set("photo", imageData);
+    window.localStorage.setItem("photo", imageData);
     smallImage.src = imageData;
 }
 function onFail(message) {
@@ -49,7 +52,7 @@ function getPhoto(source) {
             quality: 50,
             destinationType: destinationType.FILE_URI,
             sourceType: source,
-            saveToPhotoAlbum:true
+            saveToPhotoAlbum: true
         }
     );
 
