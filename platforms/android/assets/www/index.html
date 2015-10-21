@@ -21,7 +21,7 @@
 <body>
 
 
-<!--PARTE DE CAMARA -->
+<!--PARTE DE CÁMARA -->
 <div>
     <a href="#origen" data-rel="popup" data-position-to="window" data-transition="pop">
         <img id="principal-img" src="img/pasos.png"/>
@@ -29,13 +29,16 @@
 
 
     <div data-role="popup" id="origen">
-        <h3 style="text-align:center">Origen</h3>
-        <button onclick="captureImage();">Camara 1</button>
-        <!-- Este no sirve, por eso lo comento-->
-        <!--<button onclick="capturePhoto();">Camara 2</button>-->
-        <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button>
-        <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button>
-        <a href="#" data-role="button" data-rel="back" data-icon="delete" data-inline="true" data-mini="true">Cerrar</a>
+        <h3 style="text-align:center">¿De dónde desea seleccionar la foto?</h3>
+        <button onclick="captureImage();">Capturar Foto</button>
+        <!--Da para escoger el SAVEDPHOTOALBUM a galería (Que es donde se guarda la imagen que toma)
+         PHOTOLIBRARY no lo lleva a la galería, sino a los archivos. -->
+        <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">Desde la librería</button>
+        <br/>
+        <a href="#" style="text-align:center;"
+           data-role="button" data-rel="back"
+           data-icon="delete" data-inline="true"
+           data-mini="true">Cerrar</a>
 
     </div>
 </div>
@@ -47,24 +50,28 @@
 
     <h1>Podómetro</h1>
 
-    <p>Datos:</p>
 
-    <div id="data" style="display: none;">
+    <div id="data-for-pedometer" style="display: none;">
         <strong>Pasos:</strong>
 
         <p id="accelerometer"></p>
+
+        <strong>Calorías:</strong>
+
+        <p id="calories"></p>
     </div>
     <button onclick="startAccelerometer();">Iniciar Podómetro</button>
     <button onclick="stopWatchAccelerometer();">Detener Podómetro</button>
 </div>
 
 
-<!--PARTE DE BRUJULA -->
-<div id = "test">
-    <div id="heading"><h1>Waiting for heading...</h1></div>
+<!--PARTE DE BRÚJULA -->
+<div>
+    <h1>Brújula</h1>
     <img id="compass-img" src="img/brujula.png"/>
 
-    <div style="width:200px;" id="status"></div>
+    <div id="heading"><h1>Waiting for heading...</h1></div>
+
 </div>
 
 </body>
