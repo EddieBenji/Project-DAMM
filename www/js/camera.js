@@ -25,7 +25,11 @@ function captureImage() {
 
 function onPhotoDataSuccess(imageData) {
     var smallImage = document.getElementById("principal-img");
-    window.localStorage.setItem("photo", imageData);
+    var path_image = decodeURIComponent(imageData);
+    if (path_image.indexOf("providers") > -1) {
+        path_image = "content://media/external/images/media/" + path_image.split(":")[2];
+    }
+    window.localStorage.setItem("photo", path_image);
     smallImage.src = imageData;
 }
 function onFail(message) {
