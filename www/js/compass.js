@@ -39,30 +39,30 @@ function onSuccess(heading) {
     var element = document.getElementById('heading');
 
     if (heading.magneticHeading == 0) {
-        element.innerHTML = '<h1>' + heading.magneticHeading + '° N</h1>';
+        element.innerHTML = '<h1>' + Math.round(heading.magneticHeading) + '° N</h1>';
     }
     if (heading.magneticHeading == 90) {
-        element.innerHTML = '<h1>' + heading.magneticHeading + '° E</h1>';
+        element.innerHTML = '<h1>' + Math.round(heading.magneticHeading) + '° E</h1>';
     }
     if (heading.magneticHeading == 180) {
-        element.innerHTML = '<h1>' + heading.magneticHeading + '° S</h1>';
+        element.innerHTML = '<h1>' + Math.round(heading.magneticHeading) + '° S</h1>';
     }
     if (heading.magneticHeading == 270) {
-        element.innerHTML = '<h1>' + heading.magneticHeading + '° O</h1>';
+        element.innerHTML = '<h1>' + Math.round(heading.magneticHeading) + '° O</h1>';
     }
 
     if (heading.magneticHeading > 0 && heading.magneticHeading < 90) {
-        element.innerHTML = '<h1 class="NE"> ' + heading.magneticHeading + '° NE</h1>';
+        element.innerHTML = '<h1 class="NE"> ' + Math.round(heading.magneticHeading) + '° NE</h1>';
     }
 
     if (heading.magneticHeading > 90 && heading.magneticHeading < 180) {
-        element.innerHTML = '<h1 class="SE">' + heading.magneticHeading + '° SE</h1>';
+        element.innerHTML = '<h1 class="SE">' + Math.round(heading.magneticHeading) + '° SE</h1>';
     }
     if (heading.magneticHeading > 180 && heading.magneticHeading < 270) {
-        element.innerHTML = '<h1 class="SO">' + heading.magneticHeading + '° SO</h1>';
+        element.innerHTML = '<h1 class="SO">' + Math.round(heading.magneticHeading) + '° SO</h1>';
     }
     if (heading.magneticHeading > 270 && heading.magneticHeading < 360) {
-        element.innerHTML = '<h1 class="NO">' + heading.magneticHeading + '° NO</h1>';
+        element.innerHTML = '<h1 class="NO">' + Math.round(heading.magneticHeading) + '° NO</h1>';
     }
     var value = (heading.magneticHeading) * -1;
 
